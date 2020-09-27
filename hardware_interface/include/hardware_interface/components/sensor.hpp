@@ -58,7 +58,7 @@ public:
    * \return string list with state interfaces.
    */
   HARDWARE_INTERFACE_PUBLIC
-  std::vector<std::string> get_state_interfaces();
+  std::vector<InterfaceInfo> get_state_interfaces();
 
   /**
    * \brief Get state list from the sensor. This function is used by the controller to get the
@@ -75,7 +75,7 @@ public:
   HARDWARE_INTERFACE_EXPORT
   return_type get_state(
     std::vector<double> & state,
-    const std::vector<std::string> & interfaces) const;
+    const std::vector<components::InterfaceInfo> & interfaces) const;
 
   /**
    * \brief Get complete state list from the sensor. This function is used by the controller to get
@@ -102,7 +102,7 @@ public:
   HARDWARE_INTERFACE_EXPORT
   return_type set_state(
     const std::vector<double> & state,
-    const std::vector<std::string> & interfaces);
+    const std::vector<components::InterfaceInfo> & interfaces);
 
   /**
    * \brief Set complete state list from the sensor.This function is used by the hardware to set its
