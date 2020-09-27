@@ -58,7 +58,7 @@ public:
    * \return string list with command interfaces.
    */
   HARDWARE_INTERFACE_PUBLIC
-  std::vector<std::string> get_command_interfaces() const;
+  std::vector<InterfaceInfo> get_command_interfaces() const;
 
   /**
    * \brief Provide the list of state interfaces configured for the joint.
@@ -66,7 +66,7 @@ public:
    * \return string list with state interfaces.
    */
   HARDWARE_INTERFACE_PUBLIC
-  std::vector<std::string> get_state_interfaces() const;
+  std::vector<InterfaceInfo> get_state_interfaces() const;
 
   /**
    * \brief Get command list from the joint. This function is used in the write function of the
@@ -84,7 +84,7 @@ public:
   HARDWARE_INTERFACE_EXPORT
   return_type get_command(
     std::vector<double> & command,
-    const std::vector<std::string> & interfaces) const;
+    const std::vector<InterfaceInfo> & interfaces) const;
 
   /**
    * \brief Get complete command list for the joint. This function is used by the hardware to get
@@ -116,7 +116,7 @@ public:
   HARDWARE_INTERFACE_EXPORT
   return_type set_command(
     const std::vector<double> & command,
-    const std::vector<std::string> & interfaces);
+    const std::vector<components::InterfaceInfo> & interfaces);
 
   /**
    * \brief Get complete state list from the joint. This function is used by the hardware to get
@@ -131,7 +131,7 @@ public:
   HARDWARE_INTERFACE_EXPORT
   return_type set_command(const std::vector<double> & command);
 
-  /**
+  /*
    * \brief Get state list from the joint. This function is used by the controller to get the
    * actual state of the hardware. The parameters state, and interfaces have the same order and
    * number of elements. Using the interfaces list, the controller can choose which values to get.
@@ -146,7 +146,7 @@ public:
   HARDWARE_INTERFACE_EXPORT
   return_type get_state(
     std::vector<double> & state,
-    const std::vector<std::string> & interfaces) const;
+    const std::vector<components::InterfaceInfo> & interfaces) const;
 
   /**
    * \brief Get complete state list from the joint. This function is used by the controller to get
@@ -173,7 +173,7 @@ public:
   HARDWARE_INTERFACE_EXPORT
   return_type set_state(
     const std::vector<double> & state,
-    const std::vector<std::string> & interfaces);
+    const std::vector<components::InterfaceInfo> & interfaces);
 
   /**
    * \brief Set complete state list from the joint.This function is used by the hardware to set its
